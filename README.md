@@ -1,7 +1,7 @@
 # Cryptor
 
 A simple commandline tool for encrypting and decrypting file with AES-256 Cipher feedback (CFB).
-
+Both input and output is base64, which means secrets are easy to store in all forms of storage.
 
 ## Install
 
@@ -27,5 +27,6 @@ cryptor -d secret.aes secret2.txt
 > enter key:
 > re-enter key:
 
+cat secret2.txt
 diff secret.txt secret2.txt
 ```

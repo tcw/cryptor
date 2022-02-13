@@ -84,7 +84,7 @@ func secret() []byte {
 	check(err)
 	fmt.Println()
 	if string(bytePassword) != string(retypedBytePassword) {
-		log.Fatalf("%s have to match")
+		log.Fatalln("keys have to match")
 	}
 	password := string(bytePassword)
 	trimmedPassword := strings.TrimSpace(password)
