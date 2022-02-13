@@ -1,4 +1,4 @@
-module cryptor
+module github.com/tcw/cryptor
 
 go 1.17
 
