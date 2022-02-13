@@ -1,4 +1,4 @@
-module encryptor
+module cryptor
 
 go 1.17
 
