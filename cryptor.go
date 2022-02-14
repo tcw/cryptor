@@ -31,13 +31,13 @@ func main() {
 	}
 	flag.Parse()
 	if *encrypt == *decrypt {
-		log.Println("chose either option -e or -d")
+		fmt.Println("chose either option -e or -d")
 		return
 	}
 
 	args := flag.Args()
 	if len(args) != 2 {
-		log.Println("missing file as input parameter, should be [options] [source] [desination]")
+		fmt.Println("missing file as input parameter, should be [options] [source] [desination]")
 		return
 	}
 	sourceFile := args[0]
