@@ -54,7 +54,7 @@ func main() {
 	check(err)
 
 	if *encrypt {
-		key := secret()
+		key := secret(true)
 		fileContent, err := io.ReadAll(source)
 		check(err)
 		encoded, err := encryptAES(key, string(fileContent))
@@ -64,7 +64,7 @@ func main() {
 		return
 	}
 	if *decrypt {
-		key := secret()
+		key := secret(false)
 		fileContent, err := io.ReadAll(source)
 		check(err)
 		decoded, err := decryptAES(key, string(fileContent))
@@ -74,17 +74,19 @@ func main() {
 	}
 }
 
-func secret() []byte {
+func secret(reenter bool) []byte {
 	fmt.Print("enter key: ")
 	bytePassword, err := terminal.ReadPassword(0)
 	fmt.Println()
 	check(err)
-	fmt.Printf("re-enter key: ")
-	retypedBytePassword, err := terminal.ReadPassword(0)
-	check(err)
-	fmt.Println()
-	if string(bytePassword) != string(retypedBytePassword) {
-		log.Fatalln("keys have to match")
+	if reenter {
+		fmt.Printf("re-enter key: ")
+		retypedBytePassword, err := terminal.ReadPassword(0)
+		check(err)
+		fmt.Println()
+		if string(bytePassword) != string(retypedBytePassword) {
+			log.Fatalln("keys have to match")
+		}
 	}
 	password := string(bytePassword)
 	trimmedPassword := strings.TrimSpace(password)
