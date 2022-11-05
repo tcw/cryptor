@@ -6,7 +6,7 @@ Both input and output is base64, which means secrets are easy to store in all fo
 ## Install
 
 ```shell
- go get -u github.com/tcw/cryptor
+ go install github.com/tcw/cryptor@latest
 ```
 
 ## Usage
