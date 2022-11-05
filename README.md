@@ -25,7 +25,6 @@ cryptor -e secret.txt secret.aes
 
 cryptor -d secret.aes secret2.txt
 > enter key:
-> re-enter key:
 
 cat secret2.txt
 diff secret.txt secret2.txt
